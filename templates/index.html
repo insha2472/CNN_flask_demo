@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Noto+Sans+JP:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(180deg, #e8f4f8 0%, #d4eef6 30%, #c5e8f2 60%, #b8e2ed 100%);
+            color: #3a5a5c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Soft clouds */
+        .cloud {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            filter: blur(30px);
+            pointer-events: none;
+        }
+
+        .cloud-1 {
+            width: 300px;
+            height: 80px;
+            top: 10%;
+            left: 5%;
+        }
+
+        .cloud-2 {
+            width: 200px;
+            height: 60px;
+            top: 20%;
+            right: 10%;
+        }
+
+        .cloud-3 {
+            width: 250px;
+            height: 70px;
+            top: 5%;
+            left: 40%;
+        }
+
+        /* Plant decorations */
+        .plants {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            pointer-events: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 2rem;
+        }
+
+        .plant {
+            font-size: 4rem;
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .plant-left {
+            transform: scaleX(-1);
+        }
+
+        /* Floating leaves */
+        .leaf {
+            position: fixed;
+            font-size: 1.5rem;
+            opacity: 0.5;
+            animation: sway 6s ease-in-out infinite;
+        }
+
+        .leaf-1 {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .leaf-2 {
+            top: 30%;
+            right: 15%;
+            animation-delay: 1s;
+            font-size: 1.2rem;
+        }
+
+        .leaf-3 {
+            top: 45%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .leaf-4 {
+            top: 25%;
+            right: 25%;
+            animation-delay: 1.5s;
+            font-size: 1rem;
+        }
+
+        @keyframes sway {
+
+            0%,
+            100% {
+                transform: rotate(-5deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(5deg) translateY(-10px);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(100, 150, 160, 0.15);
+        }
+
+        .plant-top {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5rem;
+        }
+
+        h1 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 600;
+            color: #2d5a5e;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .jp-text {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1rem;
+            color: #5a8a8c;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #7ab8bc, transparent);
+            margin: 0 auto 1.5rem;
+        }
+
+        .message {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #4a7a7c;
+            font-weight: 400;
+        }
+
+        .footer-plants {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            letter-spacing: 0.5rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .card {
+                padding: 2rem;
+            }
+
+            .plant {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Clouds -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+    <!-- Floating leaves -->
+    <div class="leaf leaf-1">🍃</div>
+    <div class="leaf leaf-2">🌿</div>
+    <div class="leaf leaf-3">🍃</div>
+    <div class="leaf leaf-4">🌱</div>
+
+    <!-- Bottom plants -->
+    <div class="plants">
+        <span class="plant plant-left">🌿🌱🪴</span>
+        <span class="plant">🌾🌿🪻</span>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="plant-top">🌸 🌷 🌸</div>
+            <h1>Hello, World!</h1>
+            <p class="jp-text">ようこそ • Welcome to Flask</p>
+            <div class="divider"></div>
+            <p class="message">
+                A gentle breeze carries your greeting<br>
+                through a peaceful digital garden.
+            </p>
+            <div class="footer-plants">🌱 🌿 � � �</div>
+        </div>
+    </div>
+</body>
+
+</html>

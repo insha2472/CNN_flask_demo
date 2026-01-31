@@ -13,7 +13,8 @@ def abc():
 
 @app.route("/<name>")
 def name(name):
-    return render_template("name.html",name=name)
+    return render_template("name.html", name=name)
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)

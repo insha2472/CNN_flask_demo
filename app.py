@@ -18,7 +18,7 @@ def gossip():
 @app.route("/events")
 def events():
     return render_template("events.html")
-
+#
 @app.route("/gallery")
 def gallery():
     return render_template("gallery.html")

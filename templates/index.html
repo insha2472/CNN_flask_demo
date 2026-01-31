@@ -8,7 +8,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
         rel="stylesheet">
-    #
     <style>
         * {
             margin: 0;
@@ -20,11 +19,12 @@
             min-height: 100vh;
             font-family: 'EB Garamond', serif;
             background:
-                radial-gradient(ellipse at top left, rgba(139, 69, 69, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom right, rgba(184, 134, 80, 0.1) 0%, transparent 50%),
-                linear-gradient(180deg, #1a1520 0%, #2a1f2d 30%, #261a28 60%, #1a1520 100%);
-            color: #e8dcc8;
+                radial-gradient(ellipse at top left, rgba(139, 69, 69, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(184, 134, 80, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #120e16 0%, #1e1520 30%, #1a121b 60%, #120e16 100%);
+            color: #f1ebd9;
             position: relative;
+            overflow-x: hidden;
         }
 
         /* Royal damask pattern overlay */
@@ -36,163 +36,290 @@
             width: 100%;
             height: 100%;
             background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.02) 35px, rgba(184, 134, 80, 0.02) 70px),
-                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.02) 35px, rgba(184, 134, 80, 0.02) 70px);
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.03) 35px, rgba(184, 134, 80, 0.03) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.03) 35px, rgba(184, 134, 80, 0.03) 70px);
             pointer-events: none;
             z-index: 0;
         }
 
+        /* Floating Petal Animation */
+        .petal {
+            position: fixed;
+            color: #8b4545;
+            font-size: 1.2rem;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         /* Navigation */
         nav {
-            background: rgba(26, 21, 32, 0.95);
-            border-bottom: 1px solid rgba(184, 134, 80, 0.3);
-            padding: 1rem 2rem;
+            background: rgba(18, 14, 22, 0.9);
+            border-bottom: 2px solid #d4af3755;
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
         nav a {
             color: #c8b090;
             text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border-bottom: 2px solid transparent;
+            font-weight: 500;
         }
 
         nav a:hover,
         nav a.active {
             color: #d4af37;
             border-bottom: 2px solid #d4af37;
+            transform: scale(1.1);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
         }
 
         /* Hero Section */
         .hero {
-            min-height: 80vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             position: relative;
         }
 
-        .hero::before {
-            content: '🌹';
-            position: absolute;
-            font-size: 15rem;
-            opacity: 0.03;
-            left: 10%;
-            top: 20%;
-        }
-
-        .hero::after {
-            content: '🌹';
-            position: absolute;
-            font-size: 12rem;
-            opacity: 0.03;
-            right: 10%;
-            bottom: 20%;
-        }
-
-        .hero-content {
-            max-width: 700px;
+        .hero-frame {
             position: relative;
-            z-index: 1;
+            padding: 4rem;
+            border: 2px solid #d4af3733;
+            background: rgba(30, 21, 32, 0.4);
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-frame::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid #d4af3711;
+            pointer-events: none;
         }
 
         .crown {
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 1.5rem;
-            opacity: 0.6;
+            color: #d4af37;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
         }
 
         h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: 500;
-            background: linear-gradient(135deg, #f5e6c8 0%, #d4af37 50%, #c9a227 100%);
+            background: linear-gradient(135deg, #fff3d6 0%, #d4af37 50%, #b8860b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-style: italic;
-            letter-spacing: 4px;
-            text-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+            letter-spacing: 5px;
+            text-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
         }
 
         .tagline {
-            font-size: 1.2rem;
-            color: #c8b090;
+            font-size: 1.4rem;
+            color: #f1ebd9;
             font-style: italic;
             margin-bottom: 3rem;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .netflix-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .netflix-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(229, 9, 20, 0.5);
+            border-color: #ff3d47;
         }
 
         /* Cards Grid */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            padding: 2rem 4rem 4rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            padding: 2rem 5rem 6rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .card {
-            background: rgba(42, 31, 45, 0.8);
-            border: 1px solid rgba(184, 134, 80, 0.3);
-            border-radius: 8px;
-            padding: 2rem;
+            background: rgba(30, 21, 32, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 3rem 2rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
             color: inherit;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
-            border-color: rgba(212, 175, 55, 0.5);
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+
+        .card:hover::before {
+            opacity: 1;
         }
 
         .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
         }
 
         .card h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 500;
+            font-size: 1.8rem;
+            font-weight: 600;
             color: #d4af37;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
         }
-#
+
         .card p {
-            font-size: 0.95rem;
-            color: #b8997a;
-            line-height: 1.6;
+            font-size: 1rem;
+            color: #c8b090;
+            line-height: 1.8;
+            font-style: italic;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
-            font-size: 0.8rem;
+            padding: 4rem 2rem;
+            font-size: 0.9rem;
             color: #8b7355;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            background: rgba(18, 14, 22, 0.5);
+            border-top: 1px solid #d4af3722;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .hero-frame {
+                padding: 2rem;
+            }
+
+            .cards {
+                padding: 2rem;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Floating Petals -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.body;
+            for (let i = 0; i < 15; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.innerHTML = '🌸';
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                petal.style.animationDelay = (Math.random() * 20) + 's';
+                petal.style.fontSize = (Math.random() * 0.5 + 0.8) + 'rem';
+                container.appendChild(petal);
+            }
+        });
+    </script>
+
     <nav>
         <a href="/" class="active">Home</a>
         <a href="/identity">Your Identity</a>
@@ -202,41 +329,46 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-content">
-            <div class="crown">♕</div>
-            <h1>The Bridgerton Experience</h1>
-            <p class="tagline">Live your Regency era dream. Enter the world of elegance, romance, and society.</p>
+        <div class="hero-frame">
+            <div class="hero-content">
+                <div class="crown">♕</div>
+                <h1>The Bridgerton Experience</h1>
+                <p class="tagline">Live your Regency era dream. Enter a world where every detail is a masterpiece.</p>
+                <a href="https://www.netflix.com/title/80232398" target="_blank" class="netflix-btn">
+                    Watch Bridgerton on Netflix 🎬
+                </a>
+            </div>
         </div>
     </section>
 
     <div class="cards">
         <a href="/identity" class="card">
             <div class="card-icon">👗</div>
-            <h3>Create Your Identity</h3>
-            <p>Choose your title, name, and become a member of the ton for the social season.</p>
+            <h3>Regency Identity</h3>
+            <p>Design your grand title and family lineage for the upcoming social season.</p>
         </a>
 
         <a href="/gossip" class="card">
             <div class="card-icon">📜</div>
-            <h3>Lady Whistledown's Column</h3>
-            <p>Read the latest gossip and scandals from society's most mysterious chronicler.</p>
+            <h3>Whistledown's Papers</h3>
+            <p>Uncover the scandals and triumphs of high society from the mysterious lady herslef.</p>
         </a>
 
         <a href="/events" class="card">
             <div class="card-icon">💃</div>
-            <h3>Social Calendar</h3>
-            <p>Attend balls, promenades, and the most prestigious events of the season.</p>
+            <h3>Grand Calendar</h3>
+            <p>Secure your invitations to the most prestigious balls and masquerades of the year.</p>
         </a>
 
         <a href="/gallery" class="card">
             <div class="card-icon">🖼️</div>
-            <h3>Regency Gallery</h3>
-            <p>Immerse yourself in the beauty and aesthetics of the Regency era.</p>
+            <h3>Royal Gallery</h3>
+            <p>Browse the curated aesthetics and moments that define our distinguished world.</p>
         </a>
     </div>
 
     <footer>
-        ❧ The Social Season • Est. 2026 ❧
+        ❧ The Social Season • Est. 2026 • Curated for Excellence ❧
     </footer>
 </body>
 

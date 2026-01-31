@@ -18,33 +18,57 @@
         body {
             min-height: 100vh;
             font-family: 'EB Garamond', serif;
-            background: linear-gradient(180deg, #f8f5f0 0%, #f0ebe3 50%, #e8e0d5 100%);
-            color: #3d3528;
+            background:
+                radial-gradient(ellipse at top left, rgba(139, 69, 69, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(184, 134, 80, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #1a1520 0%, #2a1f2d 30%, #261a28 60%, #1a1520 100%);
+            color: #e8dcc8;
+            position: relative;
+        }
+
+        /* Royal damask pattern overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.02) 35px, rgba(184, 134, 80, 0.02) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.02) 35px, rgba(184, 134, 80, 0.02) 70px);
+            pointer-events: none;
+            z-index: 0;
         }
 
         nav {
-            background: rgba(255, 253, 250, 0.9);
-            border-bottom: 1px solid rgba(180, 160, 130, 0.3);
+            background: rgba(26, 21, 32, 0.95);
+            border-bottom: 1px solid rgba(184, 134, 80, 0.3);
             padding: 1rem 2rem;
             display: flex;
             justify-content: center;
             gap: 2rem;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav a {
-            color: #5a5040;
+            color: #c8b090;
             text-decoration: none;
             font-size: 0.85rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             padding: 0.5rem 1rem;
             border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
         }
 
         nav a:hover,
         nav a.active {
-            color: #8b5a3c;
-            border-bottom: 2px solid #8b5a3c;
+            color: #d4af37;
+            border-bottom: 2px solid #d4af37;
         }
 
         .container {
@@ -61,14 +85,18 @@
         .header h1 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.8rem;
-            color: #4a4030;
+            background: linear-gradient(135deg, #f5e6c8 0%, #d4af37 50%, #c9a227 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-style: italic;
             margin-bottom: 0.5rem;
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
         }
 
         .date {
             font-size: 0.9rem;
-            color: #9a8a70;
+            color: #c8b090;
             letter-spacing: 2px;
         }
 
@@ -78,7 +106,9 @@
             border-radius: 4px;
             padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 5px 20px rgba(100, 80, 50, 0.08);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .letter-title {
@@ -108,9 +138,10 @@
 
         .divider {
             text-align: center;
-            color: #c8b090;
+            color: #d4af37;
             margin: 2rem 0;
             font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
     </style>
 </head>

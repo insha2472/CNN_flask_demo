@@ -18,33 +18,57 @@
         body {
             min-height: 100vh;
             font-family: 'EB Garamond', serif;
-            background: linear-gradient(180deg, #f8f5f0 0%, #f0ebe3 50%, #e8e0d5 100%);
-            color: #3d3528;
+            background:
+                radial-gradient(ellipse at top left, rgba(139, 69, 69, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(184, 134, 80, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #1a1520 0%, #2a1f2d 30%, #261a28 60%, #1a1520 100%);
+            color: #e8dcc8;
+            position: relative;
+        }
+
+        /* Royal damask pattern overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.02) 35px, rgba(184, 134, 80, 0.02) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.02) 35px, rgba(184, 134, 80, 0.02) 70px);
+            pointer-events: none;
+            z-index: 0;
         }
 
         nav {
-            background: rgba(255, 253, 250, 0.9);
-            border-bottom: 1px solid rgba(180, 160, 130, 0.3);
+            background: rgba(26, 21, 32, 0.95);
+            border-bottom: 1px solid rgba(184, 134, 80, 0.3);
             padding: 1rem 2rem;
             display: flex;
             justify-content: center;
             gap: 2rem;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav a {
-            color: #5a5040;
+            color: #c8b090;
             text-decoration: none;
             font-size: 0.85rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             padding: 0.5rem 1rem;
             border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
         }
 
         nav a:hover,
         nav a.active {
-            color: #8b5a3c;
-            border-bottom: 2px solid #8b5a3c;
+            color: #d4af37;
+            border-bottom: 2px solid #d4af37;
         }
 
         .container {
@@ -57,22 +81,28 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.5rem;
             text-align: center;
-            color: #4a4030;
+            background: linear-gradient(135deg, #f5e6c8 0%, #d4af37 50%, #c9a227 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 2rem;
             font-style: italic;
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
         }
 
         .form-card {
-            background: rgba(255, 253, 250, 0.8);
-            border: 1px solid rgba(180, 160, 130, 0.3);
+            background: rgba(42, 31, 45, 0.8);
+            border: 1px solid rgba(184, 134, 80, 0.3);
             border-radius: 8px;
             padding: 2.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         label {
             display: block;
             font-size: 0.9rem;
-            color: #6a5a45;
+            color: #c8b090;
             margin-bottom: 0.5rem;
             letter-spacing: 1px;
         }
@@ -83,9 +113,10 @@
             padding: 0.8rem 1rem;
             font-family: 'EB Garamond', serif;
             font-size: 1rem;
-            border: 1px solid rgba(180, 160, 130, 0.4);
+            border: 1px solid rgba(184, 134, 80, 0.3);
             border-radius: 4px;
-            background: #fffdf8;
+            background: rgba(26, 21, 32, 0.5);
+            color: #e8dcc8;
             margin-bottom: 1.5rem;
         }
 
@@ -94,38 +125,43 @@
             padding: 1rem;
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
-            background: linear-gradient(135deg, #8b7355 0%, #6a5a45 100%);
-            color: white;
+            background: linear-gradient(135deg, #d4af37 0%, #8b7355 100%);
+            color: #1a1520;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             letter-spacing: 2px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         button:hover {
-            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
 
         .result {
             margin-top: 2rem;
             padding: 2rem;
-            background: rgba(255, 253, 250, 0.9);
-            border: 1px solid rgba(180, 160, 130, 0.3);
+            background: rgba(42, 31, 45, 0.9);
+            border: 1px solid rgba(184, 134, 80, 0.4);
             border-radius: 8px;
             text-align: center;
             display: none;
+            position: relative;
+            z-index: 1;
         }
 
         .result h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
-            color: #4a4030;
+            color: #d4af37;
             font-style: italic;
             margin-bottom: 1rem;
         }
 
         .result p {
-            color: #6a5a45;
+            color: #c8b090;
             line-height: 1.8;
             font-style: italic;
         }

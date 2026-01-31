@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regency Gallery | Bridgerton</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'EB Garamond', serif;
+            background: linear-gradient(180deg, #f8f5f0 0%, #f0ebe3 50%, #e8e0d5 100%);
+            color: #3d3528;
+        }
+
+        nav {
+            background: rgba(255, 253, 250, 0.9);
+            border-bottom: 1px solid rgba(180, 160, 130, 0.3);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #5a5040;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #8b5a3c;
+            border-bottom: 2px solid #8b5a3c;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #4a4030;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #9a8a70;
+            font-style: italic;
+            margin-bottom: 3rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(100, 80, 50, 0.12);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem 1rem 1rem;
+        }
+
+        .gallery-item .caption h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-item .caption p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 253, 250, 0.8);
+            border: 1px solid rgba(180, 160, 130, 0.3);
+            border-radius: 8px;
+            font-style: italic;
+            color: #6a5a45;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/identity">Your Identity</a>
+        <a href="/gossip">Gossip Column</a>
+        <a href="/events">Social Events</a>
+        <a href="/gallery" class="active">Gallery</a>
+    </nav>
+
+    <div class="container">
+        <h1>The Regency Gallery</h1>
+        <p class="subtitle">Scenes of beauty and elegance from our world</p>
+
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/cherries.jpg') }}" alt="Cherry Pattern">
+                <div class="caption">
+                    <h3>Cherry Elegance</h3>
+                    <p>Patterns of the season</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/flowers_sky.jpg') }}" alt="Flowers and Sky">
+                <div class="caption">
+                    <h3>Garden at Twilight</h3>
+                    <p>Where secret meetings occur</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="{{ url_for('static', filename='images/canyon.jpg') }}" alt="Natural Landscapes">
+                <div class="caption">
+                    <h3>Nature's Grandeur</h3>
+                    <p>The beauty beyond London</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="note">
+            "Beauty is the quality which makes to endure." — The Regency Era
+        </div>
+    </div>
+</body>
+
+</html>

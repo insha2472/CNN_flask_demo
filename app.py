@@ -7,11 +7,27 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
+@app.route("/identity")
+def identity():
+    return render_template("identity.html")
+
+@app.route("/gossip")
+def gossip():
+    return render_template("gossip.html")
+
+@app.route("/events")
+def events():
+    return render_template("events.html")
+
+@app.route("/gallery")
+def gallery():
+    return render_template("gallery.html")
+
 @app.route("/abc")
 def abc():
     return render_template("abc.html")
 
-@app.route("/<name>")
+@app.route("/name/<name>")
 def name(name):
     return render_template("name.html", name=name)
 

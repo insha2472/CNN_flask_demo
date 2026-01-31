@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Identity | Bridgerton</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'EB Garamond', serif;
+            background: linear-gradient(180deg, #f8f5f0 0%, #f0ebe3 50%, #e8e0d5 100%);
+            color: #3d3528;
+        }
+
+        nav {
+            background: rgba(255, 253, 250, 0.9);
+            border-bottom: 1px solid rgba(180, 160, 130, 0.3);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #5a5040;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #8b5a3c;
+            border-bottom: 2px solid #8b5a3c;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #4a4030;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .form-card {
+            background: rgba(255, 253, 250, 0.8);
+            border: 1px solid rgba(180, 160, 130, 0.3);
+            border-radius: 8px;
+            padding: 2.5rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            color: #6a5a45;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-family: 'EB Garamond', serif;
+            font-size: 1rem;
+            border: 1px solid rgba(180, 160, 130, 0.4);
+            border-radius: 4px;
+            background: #fffdf8;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, #8b7355 0%, #6a5a45 100%);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(255, 253, 250, 0.9);
+            border: 1px solid rgba(180, 160, 130, 0.3);
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .result h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: #4a4030;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .result p {
+            color: #6a5a45;
+            line-height: 1.8;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/identity" class="active">Your Identity</a>
+        <a href="/gossip">Gossip Column</a>
+        <a href="/events">Social Events</a>
+        <a href="/gallery">Gallery</a>
+    </nav>
+
+    <div class="container">
+        <h1>Create Your Regency Identity</h1>
+
+        <div class="form-card">
+            <label>Your Title</label>
+            <select id="title">
+                <option value="Lady">Lady</option>
+                <option value="Lord">Lord</option>
+                <option value="Duke">Duke</option>
+                <option value="Duchess">Duchess</option>
+                <option value="Viscount">Viscount</option>
+                <option value="Viscountess">Viscountess</option>
+                <option value="Earl">Earl</option>
+                <option value="Countess">Countess</option>
+            </select>
+
+            <label>Your First Name</label>
+            <input type="text" id="firstName" placeholder="e.g., Daphne, Anthony, Eloise...">
+
+            <label>Your Family House</label>
+            <select id="house">
+                <option value="Bridgerton">House of Bridgerton</option>
+                <option value="Featherington">House of Featherington</option>
+                <option value="Hastings">House of Hastings</option>
+                <option value="Sharma">House of Sharma</option>
+                <option value="Mondrich">House of Mondrich</option>
+                <option value="Your Own">Your Own Noble House</option>
+            </select>
+
+            <label>Your Special Talent</label>
+            <select id="talent">
+                <option value="dancing">Exceptional Dancing</option>
+                <option value="music">Musical Brilliance</option>
+                <option value="wit">Sharp Wit & Conversation</option>
+                <option value="beauty">Stunning Beauty</option>
+                <option value="mystery">Air of Mystery</option>
+                <option value="gossip">Knowledge of All Secrets</option>
+            </select>
+
+            <button onclick="createIdentity()">Present Me to the Queen ♕</button>
+        </div>
+
+        <div class="result" id="result">
+            <h2 id="resultTitle"></h2>
+            <p id="resultText"></p>
+        </div>
+    </div>
+
+    <script>
+        function createIdentity() {
+            const title = document.getElementById('title').value;
+            const firstName = document.getElementById('firstName').value || 'Anonymous';
+            const house = document.getElementById('house').value;
+            const talent = document.getElementById('talent').value;
+
+            const talents = {
+                'dancing': 'whose graceful movements captivate every ballroom',
+                'music': 'whose musical talents could charm the heavens',
+                'wit': 'whose sharp tongue is the talk of every salon',
+                'beauty': 'whose beauty has launched a thousand admirers',
+                'mystery': 'whose enigmatic presence intrigues all of society',
+                'gossip': 'who knows every secret worth knowing'
+            };
+
+            document.getElementById('resultTitle').innerText = `${title} ${firstName} of ${house}`;
+            document.getElementById('resultText').innerText =
+                `The Queen has deemed you most worthy. You are now officially ${title} ${firstName} of the esteemed House of ${house}, ${talents[talent]}. May the social season bring you everything your heart desires. 🌹`;
+
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

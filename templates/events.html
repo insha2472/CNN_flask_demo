@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Events | Bridgerton</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'EB Garamond', serif;
+            background: linear-gradient(180deg, #f8f5f0 0%, #f0ebe3 50%, #e8e0d5 100%);
+            color: #3d3528;
+        }
+
+        nav {
+            background: rgba(255, 253, 250, 0.9);
+            border-bottom: 1px solid rgba(180, 160, 130, 0.3);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #5a5040;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #8b5a3c;
+            border-bottom: 2px solid #8b5a3c;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #4a4030;
+            font-style: italic;
+            margin-bottom: 3rem;
+        }
+
+        .events {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .event {
+            background: rgba(255, 253, 250, 0.8);
+            border: 1px solid rgba(180, 160, 130, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .event-date {
+            text-align: center;
+        }
+
+        .event-date .day {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: #8b5a3c;
+            line-height: 1;
+        }
+
+        .event-date .month {
+            font-size: 0.85rem;
+            color: #9a8a70;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-details h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: #4a4030;
+            margin-bottom: 0.3rem;
+        }
+
+        .event-details p {
+            font-size: 0.95rem;
+            color: #6a5a45;
+        }
+
+        .event-details .host {
+            font-style: italic;
+            color: #8a7a60;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .event-action {
+            padding: 0.6rem 1.2rem;
+            font-family: 'EB Garamond', serif;
+            font-size: 0.9rem;
+            background: transparent;
+            color: #5a5040;
+            border: 1px solid rgba(180, 160, 130, 0.4);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .event-action:hover {
+            background: rgba(180, 160, 130, 0.1);
+        }
+
+        .legend {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #9a8a70;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/identity">Your Identity</a>
+        <a href="/gossip">Gossip Column</a>
+        <a href="/events" class="active">Social Events</a>
+        <a href="/gallery">Gallery</a>
+    </nav>
+
+    <div class="container">
+        <h1>The Social Calendar</h1>
+
+        <div class="events">
+            <div class="event">
+                <div class="event-date">
+                    <div class="day">14</div>
+                    <div class="month">Feb</div>
+                </div>
+                <div class="event-details">
+                    <h3>💃 The Queen's Valentine Ball</h3>
+                    <p>A grand ball at the palace to celebrate love and match-making.</p>
+                    <p class="host">Hosted by Her Majesty Queen Charlotte</p>
+                </div>
+                <button class="event-action">RSVP</button>
+            </div>
+
+            <div class="event">
+                <div class="event-date">
+                    <div class="day">21</div>
+                    <div class="month">Feb</div>
+                </div>
+                <div class="event-details">
+                    <h3>🎭 The Featherington Masquerade</h3>
+                    <p>An evening of mystery and intrigue behind elegant masks.</p>
+                    <p class="host">Hosted by Lady Portia Featherington</p>
+                </div>
+                <button class="event-action">RSVP</button>
+            </div>
+
+            <div class="event">
+                <div class="event-date">
+                    <div class="day">1</div>
+                    <div class="month">Mar</div>
+                </div>
+                <div class="event-details">
+                    <h3>🌹 Promenade in Hyde Park</h3>
+                    <p>A morning stroll to see and be seen by all of society.</p>
+                    <p class="host">A public gathering for the ton</p>
+                </div>
+                <button class="event-action">Attend</button>
+            </div>
+
+            <div class="event">
+                <div class="event-date">
+                    <div class="day">15</div>
+                    <div class="month">Mar</div>
+                </div>
+                <div class="event-details">
+                    <h3>🎵 The Bridgerton Musical Evening</h3>
+                    <p>An intimate gathering featuring the finest musical talents.</p>
+                    <p class="host">Hosted by Lady Violet Bridgerton</p>
+                </div>
+                <button class="event-action">RSVP</button>
+            </div>
+
+            <div class="event">
+                <div class="event-date">
+                    <div class="day">1</div>
+                    <div class="month">Apr</div>
+                </div>
+                <div class="event-details">
+                    <h3>👑 The Diamond of the Season Announcement</h3>
+                    <p>The Queen shall declare this season's incomparable.</p>
+                    <p class="host">Royal Palace, by invitation only</p>
+                </div>
+                <button class="event-action">Request Invite</button>
+            </div>
+        </div>
+
+        <p class="legend">❧ All events require proper attire befitting the ton ❧</p>
+    </div>
+</body>
+
+</html>

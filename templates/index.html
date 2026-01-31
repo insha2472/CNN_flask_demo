@@ -19,15 +19,15 @@
             min-height: 100vh;
             font-family: 'EB Garamond', serif;
             background:
-                radial-gradient(ellipse at top left, rgba(139, 69, 69, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom right, rgba(184, 134, 80, 0.15) 0%, transparent 50%),
-                linear-gradient(180deg, #120e16 0%, #1e1520 30%, #1a121b 60%, #120e16 100%);
-            color: #f1ebd9;
+                radial-gradient(ellipse at top left, rgba(216, 191, 216, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(255, 218, 233, 0.3) 0%, transparent 50%),
+                linear-gradient(180deg, #fdf8f5 0%, #f9f0eb 30%, #fef6f0 60%, #fffaf8 100%);
+            color: #5a4a5e;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Royal damask pattern overlay */
+        /* Soft lace pattern overlay */
         body::before {
             content: '';
             position: fixed;
@@ -36,8 +36,8 @@
             width: 100%;
             height: 100%;
             background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.03) 35px, rgba(184, 134, 80, 0.03) 70px),
-                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.03) 35px, rgba(184, 134, 80, 0.03) 70px);
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(210, 180, 200, 0.04) 35px, rgba(210, 180, 200, 0.04) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(210, 180, 200, 0.04) 35px, rgba(210, 180, 200, 0.04) 70px);
             pointer-events: none;
             z-index: 0;
         }
@@ -45,11 +45,11 @@
         /* Floating Petal Animation */
         .petal {
             position: fixed;
-            color: #8b4545;
+            color: #e8a0b5;
             font-size: 1.2rem;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.6;
+            opacity: 0.7;
             animation: fall linear infinite;
         }
 
@@ -60,11 +60,11 @@
             }
 
             10% {
-                opacity: 0.6;
+                opacity: 0.7;
             }
 
             90% {
-                opacity: 0.6;
+                opacity: 0.7;
             }
 
             100% {
@@ -75,8 +75,8 @@
 
         /* Navigation */
         nav {
-            background: rgba(18, 14, 22, 0.9);
-            border-bottom: 2px solid #d4af3755;
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(200, 170, 185, 0.3);
             padding: 1.2rem 2rem;
             display: flex;
             justify-content: center;
@@ -85,11 +85,11 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(15px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(180, 150, 170, 0.15);
         }
 
         nav a {
-            color: #c8b090;
+            color: #8a7a8e;
             text-decoration: none;
             font-size: 0.9rem;
             letter-spacing: 3px;
@@ -102,10 +102,9 @@
 
         nav a:hover,
         nav a.active {
-            color: #d4af37;
-            border-bottom: 2px solid #d4af37;
+            color: #c48b9f;
+            border-bottom: 2px solid #c48b9f;
             transform: scale(1.1);
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
         }
 
         /* Hero Section */
@@ -122,11 +121,11 @@
         .hero-frame {
             position: relative;
             padding: 4rem;
-            border: 2px solid #d4af3733;
-            background: rgba(30, 21, 32, 0.4);
-            border-radius: 4px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
+            border: 1px solid rgba(200, 170, 185, 0.4);
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(180, 150, 170, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .hero-frame::after {
@@ -136,15 +135,16 @@
             left: 10px;
             right: 10px;
             bottom: 10px;
-            border: 1px solid #d4af3711;
+            border: 1px solid rgba(200, 170, 185, 0.2);
+            border-radius: 8px;
             pointer-events: none;
         }
 
         .crown {
             font-size: 4rem;
             margin-bottom: 1.5rem;
-            color: #d4af37;
-            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+            color: #c48b9f;
+            filter: drop-shadow(0 0 15px rgba(196, 139, 159, 0.3));
             animation: pulse 3s infinite ease-in-out;
         }
 
@@ -166,19 +166,18 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 5rem;
             font-weight: 500;
-            background: linear-gradient(135deg, #fff3d6 0%, #d4af37 50%, #b8860b 100%);
+            background: linear-gradient(135deg, #d4a5b9 0%, #9a7aa0 50%, #c48b9f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 1.5rem;
             font-style: italic;
             letter-spacing: 5px;
-            text-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
         }
 
         .tagline {
             font-size: 1.4rem;
-            color: #f1ebd9;
+            color: #7a6a7e;
             font-style: italic;
             margin-bottom: 3rem;
             letter-spacing: 1px;
@@ -197,13 +196,13 @@
             text-transform: uppercase;
             font-size: 0.9rem;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.25);
             border: 2px solid transparent;
         }
 
         .netflix-btn:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(229, 9, 20, 0.5);
+            box-shadow: 0 15px 40px rgba(229, 9, 20, 0.4);
             border-color: #ff3d47;
         }
 
@@ -218,9 +217,9 @@
         }
 
         .card {
-            background: rgba(30, 21, 32, 0.7);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(200, 170, 185, 0.3);
+            border-radius: 16px;
             padding: 3rem 2rem;
             text-align: center;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -238,15 +237,15 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(196, 139, 159, 0.08) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.4s;
         }
 
         .card:hover {
             transform: translateY(-12px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.2);
-            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 25px 50px rgba(180, 150, 170, 0.25);
+            border-color: rgba(196, 139, 159, 0.5);
         }
 
         .card:hover::before {
@@ -256,21 +255,21 @@
         .card-icon {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+            filter: drop-shadow(0 0 8px rgba(196, 139, 159, 0.2));
         }
 
         .card h3 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
             font-weight: 600;
-            color: #d4af37;
+            color: #9a7aa0;
             margin-bottom: 1rem;
             letter-spacing: 2px;
         }
 
         .card p {
             font-size: 1rem;
-            color: #c8b090;
+            color: #8a7a8e;
             line-height: 1.8;
             font-style: italic;
         }
@@ -280,10 +279,10 @@
             text-align: center;
             padding: 4rem 2rem;
             font-size: 0.9rem;
-            color: #8b7355;
+            color: #a090a5;
             letter-spacing: 3px;
-            background: rgba(18, 14, 22, 0.5);
-            border-top: 1px solid #d4af3722;
+            background: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(200, 170, 185, 0.25);
         }
 
         @media (max-width: 768px) {
@@ -307,12 +306,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.body;
-            for (let i = 0; i < 15; i++) {
+            const petalTypes = ['🌸', '🌷', '💮'];
+            for (let i = 0; i < 18; i++) {
                 const petal = document.createElement('div');
                 petal.className = 'petal';
-                petal.innerHTML = '🌸';
+                petal.innerHTML = petalTypes[Math.floor(Math.random() * petalTypes.length)];
                 petal.style.left = Math.random() * 100 + 'vw';
-                petal.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                petal.style.animationDuration = (Math.random() * 10 + 12) + 's';
                 petal.style.animationDelay = (Math.random() * 20) + 's';
                 petal.style.fontSize = (Math.random() * 0.5 + 0.8) + 'rem';
                 container.appendChild(petal);
@@ -351,7 +351,7 @@
         <a href="/gossip" class="card">
             <div class="card-icon">📜</div>
             <h3>Whistledown's Papers</h3>
-            <p>Uncover the scandals and triumphs of high society from the mysterious lady herslef.</p>
+            <p>Uncover the scandals and triumphs of high society from the mysterious lady herself.</p>
         </a>
 
         <a href="/events" class="card">
@@ -368,7 +368,7 @@
     </div>
 
     <footer>
-        ❧ The Social Season • Est. 2026 • Curated for Excellence ❧
+        ❧ The Social Season • Est. 2026 • Curated with Elegance ❧
     </footer>
 </body>
 

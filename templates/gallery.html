@@ -19,11 +19,12 @@
             min-height: 100vh;
             font-family: 'EB Garamond', serif;
             background:
-                radial-gradient(ellipse at top left, rgba(139, 69, 69, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom right, rgba(184, 134, 80, 0.1) 0%, transparent 50%),
-                linear-gradient(180deg, #1a1520 0%, #2a1f2d 30%, #261a28 60%, #1a1520 100%);
-            color: #e8dcc8;
+                radial-gradient(ellipse at top left, rgba(139, 69, 69, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(184, 134, 80, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #120e16 0%, #1e1520 30%, #1a121b 60%, #120e16 100%);
+            color: #f1ebd9;
             position: relative;
+            overflow-x: hidden;
         }
 
         /* Royal damask pattern overlay */
@@ -35,92 +36,140 @@
             width: 100%;
             height: 100%;
             background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.02) 35px, rgba(184, 134, 80, 0.02) 70px),
-                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.02) 35px, rgba(184, 134, 80, 0.02) 70px);
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.03) 35px, rgba(184, 134, 80, 0.03) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.03) 35px, rgba(184, 134, 80, 0.03) 70px);
             pointer-events: none;
             z-index: 0;
         }
 
+        /* Floating Petal Animation */
+        .petal {
+            position: fixed;
+            color: #8b4545;
+            font-size: 1.2rem;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         nav {
-            background: rgba(26, 21, 32, 0.95);
-            border-bottom: 1px solid rgba(184, 134, 80, 0.3);
-            padding: 1rem 2rem;
+            background: rgba(18, 14, 22, 0.9);
+            border-bottom: 2px solid #d4af3755;
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            backdrop-filter: blur(10px);
+            gap: 2.5rem;
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
         nav a {
             color: #c8b090;
             text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             padding: 0.5rem 1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         nav a:hover,
         nav a.active {
             color: #d4af37;
             border-bottom: 2px solid #d4af37;
+            transform: scale(1.1);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
         }
 
         .container {
-            max-width: 1100px;
-            margin: 3rem auto;
+            max-width: 1200px;
+            margin: 4rem auto;
             padding: 0 2rem;
+            position: relative;
+            z-index: 2;
         }
 
         h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             text-align: center;
-            background: linear-gradient(135deg, #f5e6c8 0%, #d4af37 50%, #c9a227 100%);
+            background: linear-gradient(135deg, #fff3d6 0%, #d4af37 50%, #b8860b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 1rem;
             font-style: italic;
-            text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+            letter-spacing: 2px;
         }
 
         .subtitle {
             text-align: center;
             color: #c8b090;
             font-style: italic;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
         }
 
         .gallery-item {
             position: relative;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(184, 134, 80, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .gallery-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
         }
 
         .gallery-item img {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
             display: block;
+            filter: brightness(0.9);
+            transition: filter 0.4s;
+        }
+
+        .gallery-item:hover img {
+            filter: brightness(1.1);
         }
 
         .gallery-item .caption {
@@ -128,39 +177,75 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            padding: 2rem 1rem 1rem;
+            background: linear-gradient(transparent, rgba(18, 14, 22, 0.95));
+            color: #f1ebd9;
+            padding: 3rem 1.5rem 1.5rem;
+            transform: translateY(10px);
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover .caption {
+            transform: translateY(0);
         }
 
         .gallery-item .caption h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
             color: #d4af37;
+            font-weight: 600;
         }
 
         .gallery-item .caption p {
-            font-size: 0.85rem;
-            opacity: 0.8;
+            font-size: 1rem;
+            opacity: 0.9;
+            font-style: italic;
         }
 
         .note {
             text-align: center;
-            margin-top: 3rem;
-            padding: 1.5rem;
-            background: rgba(42, 31, 45, 0.8);
-            border: 1px solid rgba(184, 134, 80, 0.3);
-            border-radius: 8px;
+            margin-top: 5rem;
+            padding: 2.5rem;
+            background: rgba(30, 21, 32, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
             font-style: italic;
-            color: #b8997a;
+            color: #d4af37;
             position: relative;
             z-index: 1;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            backdrop-filter: blur(10px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            font-size: 0.9rem;
+            color: #8b7355;
+            letter-spacing: 3px;
         }
     </style>
 </head>
 
 <body>
+    <!-- Floating Petals -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.body;
+            for (let i = 0; i < 15; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.innerHTML = '🌸';
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                petal.style.animationDelay = (Math.random() * 20) + 's';
+                petal.style.fontSize = (Math.random() * 0.5 + 0.8) + 'rem';
+                container.appendChild(petal);
+            }
+        });
+    </script>
+
     <nav>
         <a href="/">Home</a>
         <a href="/identity">Your Identity</a>
@@ -170,15 +255,15 @@
     </nav>
 
     <div class="container">
-        <h1>The Regency Gallery</h1>
-        <p class="subtitle">Scenes of beauty and elegance from our world</p>
+        <h1>The Royal Gallery</h1>
+        <p class="subtitle">Curated scenes of beauty and elegance from our distinguished world</p>
 
         <div class="gallery">
             <div class="gallery-item">
                 <img src="{{ url_for('static', filename='images/cherries.jpg') }}" alt="Cherry Pattern">
                 <div class="caption">
                     <h3>Cherry Elegance</h3>
-                    <p>Patterns of the season</p>
+                    <p>Subtle patterns of the season</p>
                 </div>
             </div>
 
@@ -186,7 +271,7 @@
                 <img src="{{ url_for('static', filename='images/flowers_sky.jpg') }}" alt="Flowers and Sky">
                 <div class="caption">
                     <h3>Garden at Twilight</h3>
-                    <p>Where secret meetings occur</p>
+                    <p>Where whispering hearts meet</p>
                 </div>
             </div>
 
@@ -194,15 +279,19 @@
                 <img src="{{ url_for('static', filename='images/canyon.jpg') }}" alt="Natural Landscapes">
                 <div class="caption">
                     <h3>Nature's Grandeur</h3>
-                    <p>The beauty beyond London</p>
+                    <p>The untamed beauty beyond London's halls</p>
                 </div>
             </div>
         </div>
 
         <div class="note">
-            "Beauty is the quality which makes to endure." — The Regency Era
+            "Beauty is the silent language of the soul." — The Regency Chronicle
         </div>
     </div>
+
+    <footer>
+        ❧ The Social Season • Est. 2026 • Timeless Perfection ❧
+    </footer>
 </body>
 
 </html>

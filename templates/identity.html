@@ -19,11 +19,12 @@
             min-height: 100vh;
             font-family: 'EB Garamond', serif;
             background:
-                radial-gradient(ellipse at top left, rgba(139, 69, 69, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom right, rgba(184, 134, 80, 0.1) 0%, transparent 50%),
-                linear-gradient(180deg, #1a1520 0%, #2a1f2d 30%, #261a28 60%, #1a1520 100%);
-            color: #e8dcc8;
+                radial-gradient(ellipse at top left, rgba(139, 69, 69, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(184, 134, 80, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #120e16 0%, #1e1520 30%, #1a121b 60%, #120e16 100%);
+            color: #f1ebd9;
             position: relative;
+            overflow-x: hidden;
         }
 
         /* Royal damask pattern overlay */
@@ -35,140 +36,222 @@
             width: 100%;
             height: 100%;
             background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.02) 35px, rgba(184, 134, 80, 0.02) 70px),
-                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.02) 35px, rgba(184, 134, 80, 0.02) 70px);
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.03) 35px, rgba(184, 134, 80, 0.03) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(184, 134, 80, 0.03) 35px, rgba(184, 134, 80, 0.03) 70px);
             pointer-events: none;
             z-index: 0;
         }
 
+        /* Floating Petal Animation */
+        .petal {
+            position: fixed;
+            color: #8b4545;
+            font-size: 1.2rem;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         nav {
-            background: rgba(26, 21, 32, 0.95);
-            border-bottom: 1px solid rgba(184, 134, 80, 0.3);
-            padding: 1rem 2rem;
+            background: rgba(18, 14, 22, 0.9);
+            border-bottom: 2px solid #d4af3755;
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            backdrop-filter: blur(10px);
+            gap: 2.5rem;
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
         nav a {
             color: #c8b090;
             text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             padding: 0.5rem 1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         nav a:hover,
         nav a.active {
             color: #d4af37;
             border-bottom: 2px solid #d4af37;
+            transform: scale(1.1);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
         }
 
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 4rem auto;
             padding: 0 2rem;
+            position: relative;
+            z-index: 2;
         }
 
         h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             text-align: center;
-            background: linear-gradient(135deg, #f5e6c8 0%, #d4af37 50%, #c9a227 100%);
+            background: linear-gradient(135deg, #fff3d6 0%, #d4af37 50%, #b8860b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             font-style: italic;
-            text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+            letter-spacing: 2px;
         }
 
         .form-card {
-            background: rgba(42, 31, 45, 0.8);
-            border: 1px solid rgba(184, 134, 80, 0.3);
-            border-radius: 8px;
-            padding: 2.5rem;
-            position: relative;
-            z-index: 1;
+            background: rgba(30, 21, 32, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
         }
 
         label {
             display: block;
-            font-size: 0.9rem;
-            color: #c8b090;
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
+            font-size: 1rem;
+            color: #d4af37;
+            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
         }
 
         input,
         select {
             width: 100%;
-            padding: 0.8rem 1rem;
+            padding: 1rem 1.2rem;
             font-family: 'EB Garamond', serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             border: 1px solid rgba(184, 134, 80, 0.3);
-            border-radius: 4px;
-            background: rgba(26, 21, 32, 0.5);
-            color: #e8dcc8;
-            margin-bottom: 1.5rem;
+            border-radius: 6px;
+            background: rgba(18, 14, 22, 0.6);
+            color: #f1ebd9;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         }
 
         button {
             width: 100%;
-            padding: 1rem;
+            padding: 1.2rem;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             background: linear-gradient(135deg, #d4af37 0%, #8b7355 100%);
             color: #1a1520;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
         }
 
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+            filter: brightness(1.1);
         }
 
         .result {
-            margin-top: 2rem;
-            padding: 2rem;
-            background: rgba(42, 31, 45, 0.9);
-            border: 1px solid rgba(184, 134, 80, 0.4);
-            border-radius: 8px;
+            margin-top: 3rem;
+            padding: 3rem;
+            background: rgba(30, 21, 32, 0.8);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 12px;
             text-align: center;
             display: none;
-            position: relative;
-            z-index: 1;
+            animation: fadeIn 0.8s ease-out;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .result h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: #d4af37;
             font-style: italic;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
 
         .result p {
-            color: #c8b090;
-            line-height: 1.8;
+            color: #f1ebd9;
+            line-height: 2;
             font-style: italic;
+            font-size: 1.2rem;
         }
     </style>
 </head>
 
 <body>
+    <!-- Floating Petals -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.body;
+            for (let i = 0; i < 15; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.innerHTML = '🌸';
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                petal.style.animationDelay = (Math.random() * 20) + 's';
+                petal.style.fontSize = (Math.random() * 0.5 + 0.8) + 'rem';
+                container.appendChild(petal);
+            }
+        });
+    </script>
+
     <nav>
         <a href="/">Home</a>
         <a href="/identity" class="active">Your Identity</a>
@@ -178,7 +261,7 @@
     </nav>
 
     <div class="container">
-        <h1>Create Your Regency Identity</h1>
+        <h1>Design Your Noble Identity</h1>
 
         <div class="form-card">
             <label>Your Title</label>
@@ -216,7 +299,7 @@
                 <option value="gossip">Knowledge of All Secrets</option>
             </select>
 
-            <button onclick="createIdentity()">Present Me to the Queen ♕</button>
+            <button onclick="createIdentity()">Submit to the Queen ♕</button>
         </div>
 
         <div class="result" id="result">
@@ -246,6 +329,7 @@
                 `The Queen has deemed you most worthy. You are now officially ${title} ${firstName} of the esteemed House of ${house}, ${talents[talent]}. May the social season bring you everything your heart desires. 🌹`;
 
             document.getElementById('result').style.display = 'block';
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
     </script>
 </body>

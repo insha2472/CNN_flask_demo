@@ -22,7 +22,7 @@ def events():
 @app.route("/gallery")
 def gallery():
     return render_template("gallery.html")
-
+#
 @app.route("/abc")
 def abc():
     return render_template("abc.html")
